@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName BookContext -MigrationsDirectory Migrations :executed once
+
+add-migration -ConfigurationTypeName BookSale.Migrations.Configuration "InitialCreate" :executed when the model changes
+
+update-database -ConfigurationTypeName BookSale.Migrations.Configuration :executed any time

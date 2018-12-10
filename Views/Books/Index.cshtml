@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BookSale.Models.Books.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookBinding)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookStock)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookBinding)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookStock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
+        </td>
+    </tr>
+}
+
+</table>

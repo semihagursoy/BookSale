@@ -1,0 +1,81 @@
+﻿@model BookSale.Models.Books.Book
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookBinding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookBinding)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookStock)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
