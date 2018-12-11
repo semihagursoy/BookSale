@@ -47,7 +47,7 @@ namespace BookSale.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookId,BookName,BookAuthor,BookBinding,BookDescription,BookPrice,BookStock,CategoryName")] Book book , HttpPostedFileBase UploadImage)
+        public ActionResult Create([Bind(Include = "BookId,BookName,BookAuthor,BookBinding,BookDescription,BookPrice,BookStock,CategoryName,BookImage")] Book book , HttpPostedFileBase UploadImage)
         {
 
             if (ModelState.IsValid)
@@ -58,6 +58,7 @@ namespace BookSale.Controllers
                         UploadImage.ContentType == "image/jpeg" || UploadImage.ContentType == "image/bmp")
                         {
                             UploadImage.SaveAs(Server.MapPath("/") + "/Content/" + UploadImage.FileName);
+                            book.BookImage = UploadImage.FileName;
                         }
                 }
                 db.Books.Add(book);
