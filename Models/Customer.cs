@@ -23,9 +23,12 @@ namespace BookSale.Models
         [EmailAddress]
         public string CustomerMail { get; set; }
 
+        [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         public string CustomerPassword { get; set; }
 
-        public string 
+        [Compare("CustomerPassword" , ErrorMessage = "Please confirm your password.")]
+        [DataType(DataType.Password)]
+        public string ConfirmCustomerPassword { get; set; }
     }
 }

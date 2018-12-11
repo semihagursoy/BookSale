@@ -155,8 +155,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\admin\AdminController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,13 +167,30 @@
     <Compile Include="Migrations\201812092107141_InitialCreate.Designer.cs">
       <DependentUpon>201812092107141_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812111820466_ChangesInTheCustomer.cs" />
+    <Compile Include="Migrations\201812111820466_ChangesInTheCustomer.Designer.cs">
+      <DependentUpon>201812111820466_ChangesInTheCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111829350_CahngesInCustomer.cs" />
+    <Compile Include="Migrations\201812111829350_CahngesInCustomer.Designer.cs">
+      <DependentUpon>201812111829350_CahngesInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111936173_AdminCreate.cs" />
+    <Compile Include="Migrations\201812111936173_AdminCreate.Designer.cs">
+      <DependentUpon>201812111936173_AdminCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812112009414_ChangesinAdmin.cs" />
+    <Compile Include="Migrations\201812112009414_ChangesinAdmin.Designer.cs">
+      <DependentUpon>201812112009414_ChangesinAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\Books\Book.cs" />
     <Compile Include="Models\Books\Category.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\DummyData.cs" />
+    <Compile Include="Models\InitialData.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +282,11 @@
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Customer\LoggedIn.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +306,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812092107141_InitialCreate.resx">
       <DependentUpon>201812092107141_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111820466_ChangesInTheCustomer.resx">
+      <DependentUpon>201812111820466_ChangesInTheCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111829350_CahngesInCustomer.resx">
+      <DependentUpon>201812111829350_CahngesInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111936173_AdminCreate.resx">
+      <DependentUpon>201812111936173_AdminCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812112009414_ChangesinAdmin.resx">
+      <DependentUpon>201812112009414_ChangesinAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

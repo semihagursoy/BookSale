@@ -1,5 +1,6 @@
 namespace BookSale.Migrations
 {
+    using BookSale.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -22,6 +23,8 @@ namespace BookSale.Migrations
             //  to avoid creating duplicate seed data.
 
 
+            context.Admins.AddOrUpdate(a => a.AdminName, InitialData.GetAdmins(context).ToArray());
+            context.SaveChanges();
         }
     }
 }

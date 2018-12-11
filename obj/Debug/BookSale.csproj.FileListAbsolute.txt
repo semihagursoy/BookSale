@@ -95,3 +95,7 @@ C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.dll
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.pdb
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.InitialCreate.resources
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.csproj.GenerateResource.cache
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.ChangesInTheCustomer.resources
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.CahngesInCustomer.resources
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.AdminCreate.resources
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.ChangesinAdmin.resources
