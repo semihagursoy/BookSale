@@ -1,6 +1,6 @@
-﻿<nav class="navbar navbar-expand-lg navbar-light bg-light">
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:20px;">
     <a class="navbar-brand" href="@Url.Action("Index" , "Home")">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,29 +13,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index" , "Books")">Book</a>
             </li>
-           
 
-            <li>
-                <form class="form-inline my-2 my-lg-0">
-                    <input style="float:right;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </li>
-            
-            <li style="float:right" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    User Operations
-                </a>
-                <div style="align-self:flex-end" class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="@Url.Action("Login" , "Customer")">Log In</a>
-                    <a class="dropdown-item" href="@Url.Action("Register" , "Customer")">Sign Up</a>
-                    <div class="dropdown-divider"></div>
-
-                </div>
-            </li>
-           
         </ul>
-        
+
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+        <input style="float:right;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <div style="float:right; border:2px blue thin;" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User Operations
+        </a>
+        <div style="align-self:flex-end" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="@Url.Action("Login" , "Customer")">Log In</a>
+            <a class="dropdown-item" href="@Url.Action("Register" , "Customer")">Sign Up</a>
+            <div class="dropdown-divider"></div>
+
+        </div>
     </div>
 </nav>
 
