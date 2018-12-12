@@ -9,10 +9,14 @@ namespace BookSale.Controllers.admin
 {
     public class AdminController : Controller
     {
-        // GET: Admin
+        
         public ActionResult Index()
         {
-            return RedirectToAction("AdminLogin");
+            if (Session["AdminId"] == null)
+            {
+                return RedirectToAction("AdminLogin");
+            }
+            return View();
         }
 
         public ActionResult AdminLogin()
@@ -21,15 +25,19 @@ namespace BookSale.Controllers.admin
         }
 
         [HttpPost]
-        public ActionResult AdminLogin(Admin admin)
+        public ActionResult AdminLogin(Admin adminAccount)
         {
             using (BookContext db = new BookContext())
             {
-                var adminToLogin = db.Admins.Single(a => a.AdminName == admin.AdminName && a.AdminPassword == admin.AdminPassword);
+                var adminToLogin = db.Admins.Where(a => a.AdminName == adminAccount.AdminName && a.AdminPassword == adminAccount.AdminPassword);
                 if(adminToLogin != null)
                 {
-                    Session["AdminName"] = adminToLogin.AdminName.ToString();
+                    //Session["AdminName"] = adminToLogin.Select("AdminName").ToString();
                     return RedirectToAction("LoggedIn");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "User Name or the password is wrong.");
                 }
             }
             return View();
@@ -39,7 +47,7 @@ namespace BookSale.Controllers.admin
         {
             if (Session["AdminId"] != null)
             {
-                return View();
+                return View("Index");
             }
             else
             {
