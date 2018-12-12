@@ -10,43 +10,72 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>AdminLogin</title>
+    <link href="~/Content/login.css" rel="stylesheet"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
-    @using (Html.BeginForm()) 
+<body id="LoginForm">
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>Admin</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.AdminName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.AdminName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AdminName, "", new { @class = "text-danger" })
+
+    <div class="container">
+        <h1 class="form-heading">Admin Panel</h1>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please enter your username and password</p>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.AdminPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.AdminPassword, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AdminPassword, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+                <form id="Login">
+                    <div class="form-group">
+
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="forgot">
+                        <a href="reset.html">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
             </div>
         </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
+    }
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
