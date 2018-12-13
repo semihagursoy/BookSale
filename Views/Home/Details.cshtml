@@ -5,71 +5,109 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+ 
+<section id="content">
+    <section id="shop" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
 
-<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </dt>
+                    <div class="col-md-12 product">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="product-gallery">
+                                    <div>
+                                        <img alt="" class="img-responsive" src="images/products/product1.jpg">
+                                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.CategoryName)
-        </dd>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="padding15">
+                                    <h2 class="product-title"><b> @Html.DisplayNameFor(model => model.BookName)  </b></h2>
+                                    <p>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookName)
-        </dt>
+                                    </p>
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Category.CategoryName)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookName)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Category.CategoryName)
+                                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookAuthor)
-        </dt>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookName)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookAuthor)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookName)
+                                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookBinding)
-        </dt>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookAuthor)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookBinding)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookAuthor)
+                                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookDescription)
-        </dt>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookBinding)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookDescription)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookBinding)
+                                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </dt>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookDescription)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookPrice)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookDescription)
+                                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookStock)
-        </dt>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookPrice)
+                                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookStock)
-        </dd>
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookPrice)
+                                        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.BookStock)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.BookStock)
+                                        </dd>
+
+                                    </dl>
+
+
+                                </div>
+
+                                <div class="padding15">
+                                    <form method="post" class="form-inline">
+                                        <div class="form-group qty">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"></span>
+                                                <input type="number" size="4" class="form-control" value="1" min="1" step="1">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-cart-plus fa-fw"></i> Add to cart</button>
+                                    </form>
+                                </div>
+                                <p><b>Category:</b> <a href="#"> @Html.DisplayNameFor(model => model.Category.CategoryName) </a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
