@@ -32,6 +32,11 @@ namespace BookSale.Controllers
             }
             return View(book);
         }
+        
+         public ActionResult BuyProduct()
+        {
+            return View();
+        }
 
 
     }
