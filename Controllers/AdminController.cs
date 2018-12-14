@@ -27,7 +27,11 @@ namespace BookSale.Controllers.admin
         [HttpPost]
         public ActionResult AdminLogin(Admin adminAccount)
         {
-            using (BookContext db = new BookContext())
+            if (ModelState.IsValid)
+            {
+                var isExist = IsAdminExist(adminAccount.AdminName);
+            }
+            /*using (BookContext db = new BookContext())
             {
                 var adminToLogin = db.Admins.Single(u => u.AdminName == adminAccount.AdminName && u.AdminPassword == adminAccount.AdminPassword);
                 if (adminToLogin != null)
@@ -40,7 +44,7 @@ namespace BookSale.Controllers.admin
                 {
                     ModelState.AddModelError("", "User mail or the password is wrong.");
                 }
-            }
+            }*/
             return View("AdminLoggedin");
         }
 
@@ -55,6 +59,20 @@ namespace BookSale.Controllers.admin
                 return RedirectToAction("AdminLogin");
             }
 
+        }
+
+        [NonAction]
+        public bool IsAdminExist(string adminName)
+        {
+            using(BookContext db = new BookContext())
+            {
+                var adminNameExist = db.Admins.Where(e => e.AdminName == adminName).FirstOrDefault();
+                if (adminNameExist.AdminName.ToString() != null)
+                {
+                    return true;
+                }
+                else return false;
+            }
         }
     }
 }

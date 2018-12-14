@@ -23,16 +23,38 @@ namespace BookSale.Controllers
         [HttpPost]
         public ActionResult Register(Customer CustomerAccount)
         {
+            bool status = false;
+            string message = "";
+
             if (ModelState.IsValid)
             {
+                //email already exists 
+                var customerExists = IsCustomerExist(CustomerAccount.CustomerMail.ToString());
+                if (customerExists)
+                {
+                    ModelState.AddModelError("EmailExist" , "This email is already in use.");
+                    return View(CustomerAccount);
+                }
+
                 using (BookContext db = new BookContext())
                 {
                     db.Customers.Add(CustomerAccount);
                     db.SaveChanges();
                 }
+                
+                message = CustomerAccount.CustomerName + " successfully registered." ;
                 ModelState.Clear();
-                ViewBag.Message = CustomerAccount.CustomerName + " successfully registered." ;
+                status = true;
+                
             }
+            else
+            {
+                message = "Invalid Request";
+            }
+
+            ViewBag.Message = message;
+            ViewBag.Status = status;
+            
             return View();
         }
 
@@ -72,6 +94,20 @@ namespace BookSale.Controllers
                 return RedirectToAction("Login");
             }
             
+        }
+        
+        [NonAction]
+        public bool IsCustomerExist(string CustomerMail)
+        {
+            using (BookContext db = new BookContext())
+            {
+                var CustomerMailExist = db.Customers.Where(e => e.CustomerMail == CustomerMail).FirstOrDefault();
+                if (CustomerMailExist != null && CustomerMailExist.CustomerMail.ToString() != null)
+                {
+                    return true;
+                }
+                else return false;
+            }
         }
     }
 }
