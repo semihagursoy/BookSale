@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201812112009414_ChangesinAdmin.Designer.cs">
       <DependentUpon>201812112009414_ChangesinAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812122007081_updateonAdmin.cs" />
+    <Compile Include="Migrations\201812122007081_updateonAdmin.Designer.cs">
+      <DependentUpon>201812122007081_updateonAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\Books\Book.cs" />
@@ -289,10 +293,11 @@
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Customer\LoggedIn.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AdminLoggedIn.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812112009414_ChangesinAdmin.resx">
       <DependentUpon>201812112009414_ChangesinAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812122007081_updateonAdmin.resx">
+      <DependentUpon>201812122007081_updateonAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

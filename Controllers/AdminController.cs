@@ -29,25 +29,26 @@ namespace BookSale.Controllers.admin
         {
             using (BookContext db = new BookContext())
             {
-                var adminToLogin = db.Admins.Where(a => a.AdminName == adminAccount.AdminName && a.AdminPassword == adminAccount.AdminPassword);
-                if(adminToLogin != null)
+                var adminToLogin = db.Admins.Single(u => u.AdminName == adminAccount.AdminName && u.AdminPassword == adminAccount.AdminPassword);
+                if (adminToLogin != null)
                 {
-                    //Session["AdminName"] = adminToLogin.Select("AdminName").ToString();
+                    Session["CustomerId"] = adminToLogin.AdminId.ToString();
+                    Session["CustomerName"] = adminToLogin.AdminName.ToString();
                     return RedirectToAction("LoggedIn");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "User Name or the password is wrong.");
+                    ModelState.AddModelError("", "User mail or the password is wrong.");
                 }
             }
-            return View();
+            return View("AdminLoggedin");
         }
 
         public ActionResult AdminLoggedIn()
         {
             if (Session["AdminId"] != null)
             {
-                return View("Index");
+                return View();
             }
             else
             {

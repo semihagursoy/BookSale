@@ -200,3 +200,4 @@ C:\Users\nacar\Documents\GitHub\BookSale\obj\Debug\BookSale.Migrations.Changesin
 C:\Users\nacar\Documents\GitHub\BookSale\obj\Debug\BookSale.csproj.GenerateResource.cache
 C:\Users\nacar\Documents\GitHub\BookSale\obj\Debug\BookSale.csproj.CoreCompileInputs.cache
 C:\Users\nacar\Documents\GitHub\BookSale\obj\Debug\BookSale.csproj.CopyComplete
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.updateonAdmin.resources
