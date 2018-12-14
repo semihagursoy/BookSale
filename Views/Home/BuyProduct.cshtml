@@ -1,4 +1,4 @@
-@model BookSale.Models.Books.Book
+﻿@model BookSale.Models.Books.Book
 @{
     ViewBag.Title = "BuyProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/Site.css">
     <style>
-        body {
-            font-family: Arial;
-            font-size: 17px;
-            padding: 8px;
-        }
-
         * {
             box-sizing: border-box;
         }
@@ -50,20 +44,13 @@
         }
 
         .container {
-            background-color: #f2f2f2;
+            background-color: #ffffff;
             padding: 5px 20px 15px 20px;
             border: 1px solid lightgrey;
             border-radius: 3px;
         }
 
-        input[type=text] {
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
+      
         label {
             margin-bottom: 10px;
             display: block;
@@ -75,26 +62,7 @@
             font-size: 24px;
         }
 
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            width: 100%;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 17px;
-        }
-
-            .btn:hover {
-                background-color: #45a049;
-            }
-
-        a {
-            color: #2196F3;
-        }
-
+   
         hr {
             border: 1px solid lightgrey;
         }
@@ -107,7 +75,6 @@
 </head>
 <body>
 
-    <h2>Satın Al</h2>
     <div class="row">
         <div class="col-75">
             <div class="container">
@@ -125,7 +92,7 @@
                             <label for="city"><i class="fa fa-institution"></i> City</label>
                             <input type="text" id="city" name="city" placeholder="New York">
 
-                            <div class="row">
+                            @*<div class="row">
                                 <div class="col-50">
                                     <label for="state">State</label>
                                     <input type="text" id="state" name="state" placeholder="NY">
@@ -134,7 +101,7 @@
                                     <label for="zip">Zip</label>
                                     <input type="text" id="zip" name="zip" placeholder="10001">
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
 
                         <div class="col-50">
