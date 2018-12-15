@@ -3,23 +3,58 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" ></a>
-                <div class="card-body">
-                    <h4 class="card-title"> @item.BookName</h4>
-                    <p class="card-text">@item.BookDescription</p>
-                    @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
-                    @Html.ActionLink("Add to Cart", "BuyProduct")
-                </div>
-            </div>
-        </div>
-    }
 
-</div>
+
+<section id="content">
+    <section id="shop" class="container">
+
+        <div class="row">
+
+            <div id="sidebar" class="col-md-3">
+
+                <div class="widget">
+                    <ul class="list-group">
+                        <li class="list-group-item"></li>
+                        <li class="list-group-item"><a href="#" style="color:darkorange">BESTSELLERS</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">SCIENCE-FICTION</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">PROGRAMMING</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">SHORT STORY</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">COOKING</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">DRAMA</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">ART</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:darkorange">CLASSICS</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                    <div class="card h-100">
+                        <a href="#"><img class="card-img-top"></a>
+                        <div class="card-body">
+                            <h4 class="card-title"> @item.BookName</h4>
+                            <p class="card-text">@item.BookDescription</p>
+                            @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                            @Html.ActionLink("Add to Cart", "BuyProduct")
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+            </section>
+            </section>
+
+
+
+
+
+
+
+
 
 
 
