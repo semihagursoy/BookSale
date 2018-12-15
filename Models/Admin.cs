@@ -10,10 +10,11 @@ namespace BookSale.Models
     {
         public int AdminId { get; set; }
 
-        [Required(ErrorMessage = "Admin name is required.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Admin name is required.")]
         public string AdminName { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required.")]
+        [DataType(DataType.Password)]
         public string AdminPassword { get; set; }
 
         public int AdminRank { get; set; }

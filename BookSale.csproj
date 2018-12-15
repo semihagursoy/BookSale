@@ -160,6 +160,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,11 +188,25 @@
     <Compile Include="Migrations\201812122007081_updateonAdmin.Designer.cs">
       <DependentUpon>201812122007081_updateonAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812152010442_CustomerLoginCreate.cs" />
+    <Compile Include="Migrations\201812152010442_CustomerLoginCreate.Designer.cs">
+      <DependentUpon>201812152010442_CustomerLoginCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812152051467_new.cs" />
+    <Compile Include="Migrations\201812152051467_new.Designer.cs">
+      <DependentUpon>201812152051467_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812152113597_InitialCreate1.cs" />
+    <Compile Include="Migrations\201812152113597_InitialCreate1.Designer.cs">
+      <DependentUpon>201812152113597_InitialCreate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\Books\Book.cs" />
     <Compile Include="Models\Books\Category.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\InitialData.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -297,8 +312,14 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\AdminLoggedIn.cshtml" />
-    <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Home\BuyProduct.cshtml" />
+    <Content Include="Views\Admin\1AdminLogin.cshtml" />
+    <Content Include="Views\Admin\AdminLogin.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,6 +355,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812122007081_updateonAdmin.resx">
       <DependentUpon>201812122007081_updateonAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812152010442_CustomerLoginCreate.resx">
+      <DependentUpon>201812152010442_CustomerLoginCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812152051467_new.resx">
+      <DependentUpon>201812152051467_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812152113597_InitialCreate1.resx">
+      <DependentUpon>201812152113597_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

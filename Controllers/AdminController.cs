@@ -25,26 +25,42 @@ namespace BookSale.Controllers.admin
         }
 
         [HttpPost]
-        public ActionResult AdminLogin(Admin adminAccount)
+        [ValidateAntiForgeryToken]
+        public ActionResult AdminLogin(AdminLogin adminAccount)
         {
-            if (ModelState.IsValid)
+            string message = "";
+            using (BookContext db = new BookContext())
             {
-                var isExist = IsAdminExist(adminAccount.AdminName);
-            }
-            /*using (BookContext db = new BookContext())
-            {
-                var adminToLogin = db.Admins.Single(u => u.AdminName == adminAccount.AdminName && u.AdminPassword == adminAccount.AdminPassword);
-                if (adminToLogin != null)
+
+                if (ModelState.IsValid)
                 {
-                    Session["CustomerId"] = adminToLogin.AdminId.ToString();
-                    Session["CustomerName"] = adminToLogin.AdminName.ToString();
-                    return RedirectToAction("LoggedIn");
+                    Admin user = db.Admins.SingleOrDefault(u => u.AdminName == adminAccount.AdminName && u.AdminPassword == adminAccount.AdminPassword);
+                    if (user != null)
+                    {
+                        if (string.Compare(adminAccount.AdminPassword, user.AdminPassword) == 0)
+                        {
+                            Session["AdminId"] = user.AdminId.ToString();
+                            Session["AdminName"] = user.AdminName.ToString();
+                            message = user.AdminName + " is now logging in.";
+                            return RedirectToAction("AdminLoggedIn");
+                        }
+                        else
+                        {
+                            message = "User name or the password is wrong.";
+                        }
+
+                    }
+                    else if (user == null)
+                    {
+                        message = "Invalid credential provided.";
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "User mail or the password is wrong.");
+                    ModelState.AddModelError("", "User name and the password are required.");
                 }
-            }*/
+            }
+            ViewBag.Message = message;
             return View("AdminLoggedin");
         }
 

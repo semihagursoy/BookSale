@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using BookSale.Models;
 
 namespace BookSale.Controllers
@@ -64,36 +65,66 @@ namespace BookSale.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Customer customerAccount)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(CustomerLogin customerAccount)
         {
+            string message = "";
             using(BookContext db = new BookContext())
             {
-                var user = db.Customers.Single(u => u.CustomerMail == customerAccount.CustomerMail && u.CustomerPassword == customerAccount.CustomerPassword);
-                if(user != null)
+
+                if(ModelState.IsValid)
                 {
-                    Session["CustomerId"] = user.CustomerId.ToString();
-                    Session["CustomerName"] = user.CustomerName.ToString();
-                    return RedirectToAction("LoggedIn");
+                    Customer user = db.Customers.SingleOrDefault(u => u.CustomerMail == customerAccount.CustomerMail && u.CustomerPassword == customerAccount.CustomerPassword);
+                    if (user != null)
+                    {
+                        if (string.Compare(customerAccount.CustomerPassword, user.CustomerPassword) == 0)
+                        {
+                            Session["CustomerId"] = user.CustomerId.ToString();
+                            Session["CustomerName"] = user.CustomerName.ToString();
+                            message = user.CustomerName + " is now logging in.";
+                            return RedirectToAction("CustomerLoggedIn");
+                        }
+                        else
+                        {
+                            message = "User mail or the password is wrong.";
+                        }
+
+                    }
+                    else if( user == null)
+                    {
+                        message = "Invalid credential provided.";
+                        //ModelState.AddModelError("", "User mail or the password is wrong.");
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "User mail or the password is wrong.");
+                    ModelState.AddModelError("", "User mail and the password are required.");
                 }
             }
+            ViewBag.Message = message;
+            
             return View();
         }
 
-        public ActionResult LoggedIn()
+        public ActionResult CustomerLoggedIn(Customer customer)
         {
             if(Session["CustomerId"] != null)
             {
-                return View();
+                // , new { @id = Session["CustomerId"] } aşağıdaki satırdaki koda ekle
+
+                return RedirectToAction("Index" , "");
             }
             else
             {
                 return RedirectToAction("Login");
             }
             
+        }
+        
+        public ActionResult CustomerLogout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login" , "Customer" );
         }
         
         [NonAction]

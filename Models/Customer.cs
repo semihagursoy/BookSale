@@ -19,7 +19,7 @@ namespace BookSale.Models
         [MaxLength(11)]
         public string CustomerPhone { get; set; }
 
-        [Required(ErrorMessage = "Email is Required")]
+        [Required(AllowEmptyStrings = false , ErrorMessage = "Email is Required")]
         [EmailAddress]
         public string CustomerMail { get; set; }
 

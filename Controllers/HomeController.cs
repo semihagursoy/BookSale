@@ -12,6 +12,7 @@ namespace BookSale.Controllers
     public class HomeController : Controller
     {
         BookContext db = new BookContext();
+
         public ActionResult Index()
         {
             List<Book> books = db.Books.ToList();
