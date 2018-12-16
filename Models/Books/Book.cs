@@ -16,6 +16,7 @@ namespace BookSale.Models.Books
         public int BookStock { get; set; }
         //public HttpPostedFileBase BookImage { get; set; }
 
+        public int BookQuantity { get; set; }
         public string BookImage { get; set; }
 
         public string CategoryName { get; set; }

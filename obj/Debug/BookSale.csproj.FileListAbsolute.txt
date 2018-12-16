@@ -205,3 +205,4 @@ C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.Cust
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations._new.resources
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.InitialCreate1.resources
 C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations.CartCreate.resources
+C:\Users\semih\source\repos\BookSale\BookSale\obj\Debug\BookSale.Migrations._11InitialCreate.resources

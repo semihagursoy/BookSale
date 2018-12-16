@@ -161,7 +161,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201812161256472_CartCreate.cs" />
     <Compile Include="Migrations\201812161256472_CartCreate.Designer.cs">
       <DependentUpon>201812161256472_CartCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812161735388_11InitialCreate.cs" />
+    <Compile Include="Migrations\201812161735388_11InitialCreate.Designer.cs">
+      <DependentUpon>201812161735388_11InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin\AdminLogin.cs" />
@@ -327,6 +331,7 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Cart.cshtml" />
+    <Content Include="Views\Order\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812161256472_CartCreate.resx">
       <DependentUpon>201812161256472_CartCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812161735388_11InitialCreate.resx">
+      <DependentUpon>201812161735388_11InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

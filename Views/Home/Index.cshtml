@@ -44,8 +44,16 @@
                         <div class="card-body">
                             <h4 class="card-title"> @item.BookName</h4>
                             <p class="card-text">@item.BookDescription</p>
-                            @Html.ActionLink("Details", "Details", new { id = item.BookId })  |
-                            @Html.ActionLink("Add to Cart", "OrderNow", "Orders" , new { id = item.BookId })
+                            @Html.ActionLink("Details", "Details", new { id = item.BookId })|
+                            @if (Session["CustomerId"] == null)
+                            {
+                                @Html.ActionLink("Add to Cart" ,"Login", "Customer")
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("OrderNow" , "Order" , new { id = item.BookId })">OrderNow</a>
+                                //@Html.ActionLink("Add to Cart" ,"OrderNow", "Order", new { id = item.BookId })
+                            }
                         </div>
                     </div>
                 </div>

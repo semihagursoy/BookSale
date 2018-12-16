@@ -15,6 +15,7 @@ namespace BookSale.Models
 
         [Required(AllowEmptyStrings = false)]
         public int BookId { get; set; }
+
         public int Count { get; set; }
 
         [Required(AllowEmptyStrings = false)]
