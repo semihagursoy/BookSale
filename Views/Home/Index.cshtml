@@ -45,7 +45,7 @@
                             <h4 class="card-title"> @item.BookName</h4>
                             <p class="card-text">@item.BookDescription</p>
                             @Html.ActionLink("Details", "Details", new { id = item.BookId })  |
-                            @Html.ActionLink("Add to Cart", "BuyProduct" )
+                            @Html.ActionLink("Add to Cart", "OrderNow", "Orders" , new { id = item.BookId })
                         </div>
                     </div>
                 </div>

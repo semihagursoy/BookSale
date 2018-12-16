@@ -160,6 +160,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Item.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,17 +201,21 @@
     <Compile Include="Migrations\201812152113597_InitialCreate1.Designer.cs">
       <DependentUpon>201812152113597_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812161256472_CartCreate.cs" />
+    <Compile Include="Migrations\201812161256472_CartCreate.Designer.cs">
+      <DependentUpon>201812161256472_CartCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AdminLogin.cs" />
+    <Compile Include="Models\Admin\AdminLogin.cs" />
     <Compile Include="Models\BookContext.cs" />
     <Compile Include="Models\Books\Book.cs" />
     <Compile Include="Models\Books\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerLogin.cs" />
-    <Compile Include="Models\CustomerOrder.cs" />
+    <Compile Include="Models\Customer\Customer.cs" />
+    <Compile Include="Models\Customer\CustomerLogin.cs" />
+    <Compile Include="Models\Customer\CustomerOrder.cs" />
     <Compile Include="Models\InitialData.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Orders\Order.cs" />
+    <Compile Include="Models\Admin\Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -321,10 +326,10 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\admin\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
@@ -365,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812152113597_InitialCreate1.resx">
       <DependentUpon>201812152113597_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812161256472_CartCreate.resx">
+      <DependentUpon>201812161256472_CartCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
