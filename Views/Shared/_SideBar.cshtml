@@ -10,21 +10,20 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="~/">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li class="active"><a href="@Url.Action("Index" , "Admins")" >Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                    <a href="@Url.Action("" , "Admins")" class="dropdown-toggle" data-toggle="dropdown">Users<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#">Create</a></li>
-                        <li><a href="#">Change</a></li>
-                        <li><a href="#">Report</a></li>
+                        <li><a href="@Url.Action("Create" , "Admins")">Create New Admin</a></li>
+                        <li><a href="@Url.Action("List" , "Admins")">See Admins</a></li> 
                         <li class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Inform</a></li>
                     </ul>
                 </li>
-                <li><a href="~/Books">Books<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-                <li><a href="~/Categories">Categories<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li><a href="@Url.Action("Index" , "Books")">Books<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                <li><a href="@Url.Action("Index" , "Categories")">Categories<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
             </ul>
         </div>
     </div>

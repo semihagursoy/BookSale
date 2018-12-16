@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h2>Category Info</h2>
@@ -19,8 +19,7 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryName }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryName }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryName }) 
             @Html.ActionLink("Delete", "Delete", new { id=item.CategoryName })
         </td>
     </tr>

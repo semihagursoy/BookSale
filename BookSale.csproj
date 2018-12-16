@@ -155,7 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -320,11 +320,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\AdminLoggedIn.cshtml" />
     <Content Include="Views\Home\BuyProduct.cshtml" />
-    <Content Include="Views\Admin\1AdminLogin.cshtml" />
-    <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Orders\Create.cshtml" />
     <Content Include="Views\Orders\Delete.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
@@ -332,6 +328,14 @@
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Cart.cshtml" />
     <Content Include="Views\Order\Cart.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\AdminLogin.cshtml" />
+    <Content Include="Views\Admins\List.cshtml" />
+    <Content Include="Views\Books\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

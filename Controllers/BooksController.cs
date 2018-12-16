@@ -133,5 +133,11 @@ namespace BookSale.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult List()
+        {
+            List<Book> books = db.Books.ToList();
+            return View(books);
+        }
     }
 }
