@@ -110,4 +110,5 @@
                     <p>
                         @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
                         @Html.ActionLink("Back to List", "Index")
+                        @Html.ActionLink("CreateOrder", "CreateOrder" , "Orders" , new { BookId = Model.BookId })
                     </p>

@@ -14,14 +14,14 @@ namespace BookSale.Controllers
     {
         private BookContext db = new BookContext();
 
-        // GET: Orders
+       
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.Book).Include(o => o.Customer);
             return View(orders.ToList());
         }
 
-        // GET: Orders/Details/5
+       
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // GET: Orders/Create
+        
         public ActionResult Create()
         {
             ViewBag.BookId = new SelectList(db.Books, "BookId", "BookName");
@@ -44,9 +44,7 @@ namespace BookSale.Controllers
             return View();
         }
 
-        // POST: Orders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderId,CustomerName,BookName,CustomerId,BookId")] Order order)
@@ -63,7 +61,6 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,9 +77,6 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "OrderId,CustomerName,BookName,CustomerId,BookId")] Order order)
@@ -98,7 +92,7 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +107,7 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -122,6 +116,14 @@ namespace BookSale.Controllers
             db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddToCart(int id)
+        {
+            Order shoppingCart = Session["Order"] as Order;
+            // if(shoppingCart == null || Session[])
+            // return RedirectToAction();
+            return View();
         }
 
         protected override void Dispose(bool disposing)

@@ -11,11 +11,13 @@ namespace BookSale.Controllers.admin
     {
         
         public ActionResult Index()
-        {
+        { 
+            /*
             if (Session["AdminId"] == null)
             {
                 return RedirectToAction("AdminLogin");
             }
+            */
             return View();
         }
 

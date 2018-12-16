@@ -207,6 +207,7 @@
     <Compile Include="Models\Books\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerLogin.cs" />
+    <Compile Include="Models\CustomerOrder.cs" />
     <Compile Include="Models\InitialData.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Admin.cs" />
