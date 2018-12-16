@@ -16,19 +16,32 @@
             <th>Quantity</th>
             <th>Sub Total</th>
         </tr>
-        
-            @foreach (Item item in (List<Item>)Session["cart"])
-            {
-        <tr>
-            <td> @item.Book.BookId</td>
-            <td> @item.Book.BookName</td>
-            <td> @item.Book.BookPrice</td>
-            <td> @item.Book.BookQuantity</td>
-        </tr>
 
-            }
-     
-     </table>
-    <br/>
-    @Html.ActionLink("Continue Shopping", "Index", "Home");
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+            <tr>
+                <td> @item.Book.BookId</td>
+                <td> @item.Book.BookName</td>
+                <td> @item.Book.BookPrice</td>
+                <td> @item.Book.BookQuantity</td>
+            </tr>
+
+        }
+
+    </table>
+    <br />
+
+    <div class="row">
+
+        <div class="form-inline my-2 my-lg-0">
+             @Html.ActionLink("Continue Shopping", "Index", "Home", null, new { @class = "btn btn-warning" })
+
+        </div>
+
+
+        <div class="form-inline my-2 my-lg-0" style="margin-left:10px;">
+            @Html.ActionLink("Buy", "BuyProduct", "Home", null,  new { @class = "btn btn-warning" })
+
+        </div>
+    </div>
 </body>
