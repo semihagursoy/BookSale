@@ -15,19 +15,25 @@
                 <div class="widget">
                     <ul class="list-group">
                         <li class="list-group-item"></li>
-                        <li class="list-group-item"><a href="#" style="color:darkorange">BESTSELLERS</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">SCIENCE-FICTION</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">PROGRAMMING</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">SHORT STORY</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">COOKING</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">DRAMA</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">ART</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:darkorange">CLASSICS</a></li>
+                        <li class="list-group-item"><a href="#" style="color:#F0AD4E">BESTSELLERS</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">SCIENCE-FICTION</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">PROGRAMMING</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">SHORT STORY</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">COOKING</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">DRAMA</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">ART</a></li>
+                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">CLASSICS</a></li>
                     </ul>
                 </div>
 
 
             </div>
+
+            <style>            
+                a {
+                    color: #F0AD4E;
+                }
+            </style>
 
             @foreach (var item in Model)
             {
@@ -38,8 +44,8 @@
                         <div class="card-body">
                             <h4 class="card-title"> @item.BookName</h4>
                             <p class="card-text">@item.BookDescription</p>
-                            @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
-                            @Html.ActionLink("Add to Cart", "BuyProduct")
+                            @Html.ActionLink("Details", "Details", new { id = item.BookId })  |
+                            @Html.ActionLink("Add to Cart", "BuyProduct" )
                         </div>
                     </div>
                 </div>

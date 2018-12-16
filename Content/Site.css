@@ -25,3 +25,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.linking {
+    color: #F0AD4E;
+}
