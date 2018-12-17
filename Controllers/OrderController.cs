@@ -21,6 +21,7 @@ namespace BookSale.Controllers
             var orders = db.Orders.Include(o => o.Book).Include(o => o.Customer);
             return View(orders.ToList());
         }
+
         private int isExisting(int id)
         {
             List<Item> cart = (List<Item>)Session["cart"];
@@ -59,6 +60,31 @@ namespace BookSale.Controllers
                 Session["cart"] = cart;
             }
             return View("Cart");
+        }
+
+        public ActionResult BuyProducts(List<Item> cart)
+        {
+            if(cart != null)
+            {
+                foreach(var item in cart)
+                {
+                    Order order = new Order();
+                    order.BookId = item.Book.BookId;
+                    order.Count = item.Quantity;
+                    order.CustomerId = Convert.ToInt32(Session["CustomerId"].ToString());
+                    order.CustomerName = Session["CustomerName"].ToString();
+                    order.OrderAddress = Session["CustomerAddress"].ToString();
+
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+
+
+
+                    Create(order);
+
+                }
+            }
+            return View();
         }
 
         

@@ -20,6 +20,7 @@ namespace BookSale.Controllers
             return View(books);
         }
 
+       
         public ActionResult Details(int? id)
         {
             if (id == null)
