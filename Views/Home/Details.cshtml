@@ -98,8 +98,10 @@
                                                 <span class="input-group-addon"></span>
                                                 <input type="number" size="4" class="form-control" value="1" min="1" step="1">
                                             </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-cart-plus fa-fw"></i> Add to cart</button>
+                                        </div><button class="btn btn-warning" type="submit">    
+                                         <a href="@Url.Action("OrderNow" , "Order" , new { id = Model.BookId})">Add to cart</a> 
+                                        </button>
+
                                     </form>
                                 </div>
                                 <p><b>Category:</b> <a href="#"> @Html.DisplayNameFor(model => model.Category.CategoryName) </a></p>

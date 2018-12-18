@@ -10,57 +10,39 @@
 
         <div class="row">
 
-            <div id="sidebar" class="col-md-3">
-
-                <div class="widget" style="float:left;">
-                    <ul class="list-group">
-                        <li class="list-group-item"></li>
-                        <li class="list-group-item"><a href="#" style="color:#F0AD4E">BESTSELLERS</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">SCIENCE-FICTION</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">PROGRAMMING</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">SHORT STORY</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">COOKING</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">DRAMA</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">ART</a></li>
-                        <li class="list-group-item"> <a href="#" style="color:#F0AD4E">CLASSICS</a></li>
-                    </ul>
-                </div>
-
-
-            </div>
-
-            <style>            
+            @Html.Partial("_IndexSidebar")
+            <style>
                 a {
                     color: #F0AD4E;
                 }
             </style>
-            
-           <div class="col-md-9">
-               <div class="row">
-                   @foreach (var item in Model)
-                   {
 
-                       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                           <div class="card h-100">
-                               <a href="#"><img class="card-img-top"></a>
-                               <div class="card-body">
-                                   <h4 class="card-title"> @item.BookName</h4>
-                                   <p class="card-text">@item.BookDescription</p>
-                                   @Html.ActionLink("Details", "Details", new { id = item.BookId })|
-                                   @if (Session["CustomerId"] == null)
-                                   {
-                                       @Html.ActionLink("Add to Cart", "Login", "Customer")
-                                   }
-                                   else
-                                   {
-                                       <a href="@Url.Action("OrderNow" , "Order" , new { id = item.BookId })">OrderNow</a>
-                                       //@Html.ActionLink("Add to Cart" ,"OrderNow", "Order", new { id = item.BookId })
-                                   }
-                               </div>
-                           </div>
-                       </div>
-                   }
-               </div> 
+            <div class="col-md-9">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title"> @item.BookName</h4>
+                                    <p class="card-text">@item.BookDescription</p>
+                                    @Html.ActionLink("Details", "Details", new { id = item.BookId })|
+                                    @if (Session["CustomerId"] == null)
+                                    {
+                                        @Html.ActionLink("Add to Cart", "Login", "Customer")
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("OrderNow" , "Order" , new { id = item.BookId })">OrderNow</a>
+                                        //@Html.ActionLink("Add to Cart" ,"OrderNow", "Order", new { id = item.BookId })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
 
