@@ -10,19 +10,22 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-   
-@foreach (var item in Model) {
-    <tr>
-  
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryName }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryName })
-        </td>
-    </tr>
-}
+<div class="table-responsive-md table-responsive">
+    <table class="table">
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryName })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryName })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
