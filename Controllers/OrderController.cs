@@ -19,6 +19,11 @@ namespace BookSale.Controllers
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.Book).Include(o => o.Customer);
+            
+            if(Session["CustomerId"] != null)
+            {
+                orders = db.Orders.Where(o => o.CustomerId == Convert.ToInt32(Session["CustomerId"]));
+            }
             return View(orders.ToList());
         }
 
@@ -74,6 +79,8 @@ namespace BookSale.Controllers
                     order.CustomerId = Convert.ToInt32(Session["CustomerId"].ToString());
                     order.CustomerName = Session["CustomerName"].ToString();
                     order.OrderAddress = Session["CustomerAddress"].ToString();
+                    order.Total = (decimal)item.Book.BookPrice;
+                    order.OrderDate = DateTime.Now;
 
                     db.Orders.Add(order);
                     db.SaveChanges();
@@ -99,7 +106,7 @@ namespace BookSale.Controllers
             {
                 return HttpNotFound();
             }
-            return View(order);
+            return View("ViewOrders");
         }
 
         
@@ -127,74 +134,7 @@ namespace BookSale.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "BookName", order.BookId);
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "CustomerName", order.CustomerId);
-            return View(order);
-        }
+       
 
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OrderId,BookId,Count,CustomerId,CustomerName,OrderAddress,Total,OrderDate")] Order order)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.BookId = new SelectList(db.Books, "BookId", "BookName", order.BookId);
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "CustomerName", order.CustomerId);
-            return View(order);
-        }
-
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
-            return View(order);
-        }
-
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

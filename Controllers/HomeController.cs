@@ -20,6 +20,19 @@ namespace BookSale.Controllers
             return View(books);
         }
 
+        public ActionResult Search(string search)
+        {
+            List<Book> book = db.Books.Where(b => b.BookName.StartsWith(search)).ToList();
+            if(book.Count == 0)
+            {
+                book = db.Books.Where(b => b.CategoryName.StartsWith(search)).ToList();
+            }else if(book.Count == 0)
+            {
+                book = db.Books.Where(b => b.BookAuthor.StartsWith(search)).ToList();
+            }
+
+            return View(book);
+        }
        
         public ActionResult Details(int? id)
         {

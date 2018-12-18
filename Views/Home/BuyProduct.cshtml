@@ -86,7 +86,7 @@
                     <label>
                         <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                     </label>
-                    <input type="submit" value="Continue to checkout" class="btn"><a href="@Url.Action("BuyProducts" , "Order")"><</a>
+                    <input type="submit" value="Continue to checkout" class="btn"><a href="@Url.Action("BuyProducts", "Order")"><</a>
                 </form>
             </div>
         </div>
@@ -107,7 +107,10 @@
 
 
 
+
             </div>
+
+            <a href="@Url.Action("Details", "Order", new { id = Session["OrderId"]})">Too see your orders click here</a>
         </div>
     </div>
 
