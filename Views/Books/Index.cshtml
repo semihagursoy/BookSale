@@ -11,65 +11,74 @@
     @Html.ActionLink("Create New Book", "Create")
 </p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookAuthor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookBinding)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookStock)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <a href="~/Content/@item.BookImage">@Html.DisplayFor(modelItem => item.BookImage)</a>
-    </tr>
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookAuthor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookBinding)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookStock)
-        </td>
+<div class=" container-fluid">
+    <div class="row">
+        <div class="table-responsive-md table-responsive">
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
-        </td>
-    </tr>
-}
+            <table class="table ">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category.CategoryName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookAuthor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookBinding)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookDescription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookStock)
+                    </th>
+                    <th></th>
+                </tr>
 
-</table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <a href="~/Content/@item.BookImage">@Html.DisplayFor(modelItem => item.BookImage)</a>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookAuthor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookBinding)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookStock)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
